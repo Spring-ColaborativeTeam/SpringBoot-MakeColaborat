@@ -1,0 +1,24 @@
+<html >
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+   
+    <title>Make-Colaborative</title>
+
+    <!-- Bootstrap -->
+    <link href="../../webapp/css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" rel="stylesheet"/>
+
+    <link href="../../webapp/css/sticky-footer-navbar.css" th:href="@{css/sticky-footer-navbar.css}" rel="stylesheet"/>
+
+  </head>
+  <body>
+  	<div th:replace="userbars/userbar :: #bar">userbar</div>
+    <div class="container"><div class="container"><h1> Make-Colaborative , Ingresa y empieza a diseñar. </h1></div></div>
+	<div th:replace="footers/footer :: #footer">footer</div>
+ 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+   
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
