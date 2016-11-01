@@ -1,6 +1,7 @@
 
 
 import java.util.List;
+import mycompany.social_login.home.Usuario;
 import org.junit.After;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
@@ -30,6 +31,17 @@ public class MakeColaborativeTest {
     public void PrimerPrueba() {
        
         assertEquals(true, true);
+        
+    }
+    /*
+    Prueba creacion de un usuario
+    
+    */
+    @Test
+    public void CrearUsuario() {
+        Usuario user = new Usuario("Ayala", "marrano@hotmail.com", "12345");
+       
+        assertEquals("Ayala", user.getName());
         
     }
     
