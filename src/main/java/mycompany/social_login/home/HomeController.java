@@ -49,14 +49,14 @@ public class HomeController {
 	@RequestMapping("/")
 	public String home(Model model) {
        
-       if (connectionRepository.findPrimaryConnection(Twitter.class) == null) {
-           return "home";
-       }
+   //    if (connectionRepository.findPrimaryConnection(Twitter.class) == null) {
+     //      return "home";
+       //}
 
-       model.addAttribute(twitter.userOperations().getUserProfile());
+     //  model.addAttribute(twitter.userOperations().getUserProfile());
         //ursoredList<TwitterProfile> friends = retrieveFriends();
        // model.addAttribute("friends", friends);
-       return "connect/twitterConnected";
+       return "home";
 	}
 
 	/**

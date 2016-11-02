@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <title>TODO supply a title</title>
-       <meta charset="utf-8"/>
-
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-       
+  
+    <title>Make-Colaborative</title>
+ 
+    <link href="../../webapp/css/styles.css" rel="stylesheet" type="text/css"/>
+   
+    <link href="../../webapp/css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" rel="stylesheet"/>
+    <link href="../../webapp/css/bootstrap.min.css" th:href="@{css/font-awesome.min.css}" rel="stylesheet"/>
+    <link href="../../webapp/css/bootstrap.min.css" th:href="@{css/bootstrap-social.css}" rel="stylesheet"/>
+     <link href="../../webapp/css/styles.css" th:href="@{css/styles}" rel="stylesheet"/>
+    
+    <link href="../../webapp/css/sticky-footer-navbar.css" th:href="@{css/sticky-footer-navbar.css}" rel="stylesheet"/>
+    
         <script src="/webjars/jquery/jquery.min.js"></script>
-        <script src="/webjars/sockjs-client/sockjs.min.js"></script>
-        <script src="/webjars/stomp-websocket/stomp.min.js"></script>
-        <link href="styles.css" rel="stylesheet" type="text/css"/>
-        <script src="/app.js"></script>
-
-    <script src="/webjars/jquery/jquery.min.js"></script>
         <script src="/webjars/sockjs-client/sockjs.min.js"></script>
         <script src="/webjars/stomp-websocket/stomp.min.js"></script>
        
         
   </head>
   <body>
-  <div th:replace="userbars/userbar :: #bar">userbar</div>	
+  	<div th:replace="userbars/userbarUser :: #bar">userbar</div>
     <div class="container"><div class="container-fluid"><h1>Bienvenido a Make-Colaborative !</h1>
 
 		

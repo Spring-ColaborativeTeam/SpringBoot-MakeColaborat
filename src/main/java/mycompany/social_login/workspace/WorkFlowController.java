@@ -22,7 +22,7 @@ public class WorkFlowController {
 	public String showWorkSpace(WebRequest request, Model model) {
 		return "userwork";
 	}
-        @RequestMapping(value = "/registerForm", method = RequestMethod.GET)
+        @RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String showFormRegister(WebRequest request, Model model) {
 		return "registerForm";
 	}
