@@ -3,6 +3,9 @@
  */
 package mycompany.social_login.loggin;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.social.connect.ConnectionRepository;
+import org.springframework.social.twitter.api.Twitter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,8 +27,10 @@ public class SigninController {
          * @return 
          */
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)
-	public String showRegistrationForm(WebRequest request, Model model) {
+	public String GetLoggingForm(WebRequest request, Model model) {
+           
 		return "signin";
 	}
 
+        
 }

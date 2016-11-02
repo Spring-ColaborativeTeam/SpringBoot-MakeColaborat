@@ -13,13 +13,12 @@
   </head>
   <body>
   	<div th:replace="userbars/userbar :: #bar">userbar</div>
-    <div class="container"><div class="jumbotron"><h1>Bienvenido a su entorno : </h1>
-		<p>
-			<a  href="/">Ahora puedes empezar a diseñar acá</a> 
-		</p>
+    <div class="container"><div class="jumbotron"><h1>Bienvenido a su entorno!</h1>
+		
+                <a href="../userwork.html" th:href="@{/userwork}">ingresar a diseñar</a>
     </div></div>
 	<div th:replace="footers/footer :: #footer">footer</div>
-    <!-- jQuery (necessary para los plugins Bootstrap's JavaScript ) -->
+    <!-- jQuery (necesario para los plugins Bootstrap's JavaScript ) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
    
     <script src="js/bootstrap.min.js"></script>

@@ -54,9 +54,9 @@ public class HomeController {
        }
 
        model.addAttribute(twitter.userOperations().getUserProfile());
-       CursoredList<TwitterProfile> friends = retrieveFriends();
-       model.addAttribute("friends", friends);
-       return "hello";
+        //ursoredList<TwitterProfile> friends = retrieveFriends();
+       // model.addAttribute("friends", friends);
+       return "connect/twitterConnected";
 	}
 
 	/**

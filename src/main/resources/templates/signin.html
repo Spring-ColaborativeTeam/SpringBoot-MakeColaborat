@@ -16,15 +16,28 @@
   </head>
   <body>
   	<div th:replace="userbars/userbar :: #bar">userbar</div>
-    <div class="container"><div class="jumbotron"><h1></h1>
+    <div class="container text-center"><div class="jumbotron"><h1></h1>
     
+              <h5 class="h5 ">Usuario:</h5>
+        <input type="text" />
+         <h5 class="h5  ">Contraseña:</h5>
+        <input type="text" />
+        <h5 class="h5  ">_____________________</h5>
+        <button class="btn-adn center-block " type="submit" >Loggin</button>
+        
+       
     <!-- TWITTER loggin -->
     <form id="tw_signin" th:action="@{/connect/twitter}" method="POST" style="text-align: center;">
-				<button class="btn btn-social btn-twitter" type="submit"><i class="fa fa-twitter"></i> Logging with Twitter</button>
+   <h5 class="h5 "></h5>
+<button class="btn  btn-twitter" type="submit">Logging with Twitter</button>
+<h5 class="h5 ">_________</h5>
+
 				
 			</form>
-			
+    <button class="btn btn-adn btn-reddit" onclick="location.href = 'registerForm.html'"  type="submit">Registrate</button>  
+   <a href="registerForm" th:href="@{/registerForm}">ingresar a diseñar</a>
     </div></div>
+        
 	<div th:replace="footers/footer :: #footer">footer</div>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

@@ -27,17 +27,13 @@ public class MySignInAdapter implements SignInAdapter{
 
 	private String extractOriginalUrl(NativeWebRequest request) {
 		HttpServletRequest nativeReq = request.getNativeRequest(HttpServletRequest.class);
+                System.out.println("nativeReq" + nativeReq.toString());
 		HttpServletResponse nativeRes = request.getNativeResponse(HttpServletResponse.class);
-
+    System.out.println("nativeResp" + nativeRes.toString());
 			return null;
 
 	}
 		 
-//	private void removeAutheticationAttributes(HttpSession session) {
-//		if (session == null) {
-//			return;
-//		}
-//		session.removeAttribute(WebAttributes.AUTHENTICATION_EXCEPTION);
-//	}
+
 
 }
