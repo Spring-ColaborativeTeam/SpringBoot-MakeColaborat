@@ -25,6 +25,8 @@ public class STOMPMessagesHandler {
     @Autowired
     ManejadorPuntos mp;
     
+    
+    
 
     @MessageMapping("/newpoint")    
     public synchronized void getLine(Rectangulo pt) throws Exception {

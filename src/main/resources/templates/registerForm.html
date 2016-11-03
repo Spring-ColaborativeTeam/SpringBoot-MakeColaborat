@@ -10,6 +10,8 @@ and open the template in the editor.
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <!-- js Registro -->
+        <script src="registro.js"></script>
         
          <!-- Bootstrap -->
         <link href="../../webapp/css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" rel="stylesheet"/>
@@ -23,13 +25,14 @@ and open the template in the editor.
                 <div th:replace="userbars/userbar :: #bar">userbar</div>
                 <div class="container text-center"><div class="jumbotron"><h1></h1>
                 <h5 class="h5">Usuario:</h5>
-                <input type="text" />
+                
+                <input id="user" type="text" />
                 <h5 class="h5">Contraseña:</h5>
-                <input type="text" />
+                <input id="pass" type="text" />
                 <h5 class="h5">Verificar Contraseña:</h5>
                 <input type="text" />
                 <h5 class="h5">_____________________</h5>
-                <button class="btn-adn center-block" type="submit" >Registrarse</button>
+                <button onclick="agregarUsuario()" class="btn-adn center-block" type="submit" >Registrarse</button>
                 
                 </div></div>
                 <div th:replace="footers/footer :: #footer">footer</div>

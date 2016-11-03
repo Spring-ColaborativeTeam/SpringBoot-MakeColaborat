@@ -19,6 +19,12 @@ public class Usuario {
         this.email = email;
         this.password = password;
     }
+
+    public Usuario(String name, String password) {
+        this.name = name;
+        this.password = password;
+    }
+    
     
     public void setPassword(String password){
         this.password = password;
