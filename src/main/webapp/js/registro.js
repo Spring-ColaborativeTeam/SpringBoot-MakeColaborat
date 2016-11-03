@@ -9,6 +9,16 @@ function agregarUsuario(){
     
     var name=$("#user").val();
     var pass=$("#pass").val();
+    var passv=$("#verificar").val();
+    if(pass === passv){
+        alert("PAsswrod correcto");
+    }
+    else{
+        alert("nO CONINDD");
+    }
+    
+    
+    console.log(passv);
     console.log("Entro agregar usuario");
     console.log("/usuarios/registro/"+name);
     return $.ajax({url: "/usuarios/registro/"+name, 
@@ -18,11 +28,13 @@ function agregarUsuario(){
     
 }
 
-
 $(document).ready(
         function () {
-           
+            
             console.info('connecting to register');
-        }
+        
+        
+    }
+                
+                
 );
-
