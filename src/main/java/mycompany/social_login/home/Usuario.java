@@ -13,7 +13,7 @@ public class Usuario {
     private String name;
     private String email;
     private String password;
-
+    
     public Usuario(String name, String email, String password) {
         this.name = name;
         this.email = email;
@@ -30,6 +30,11 @@ public class Usuario {
         this.password = password;
         
     }
+
+    public String getPassword() {
+        return password;
+    }
+    
 
     public String getName() {
         return name;

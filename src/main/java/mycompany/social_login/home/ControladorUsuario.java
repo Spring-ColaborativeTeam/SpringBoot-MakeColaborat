@@ -30,20 +30,21 @@ public class ControladorUsuario {
     public ResponseEntity<?> manejadorLetras(@PathVariable("name") String val,@RequestBody String pass){
         System.out.println("Entro al PUT "+val);
         mu.agregarUsuario(val, pass);
-        /*
-       String x;
-        System.out.println("Entro al leer");
-        try {
-            x=gameServices.addLetter(val, word);
-            msgt.convertAndSend("/topic/wupdate."+val,x);
-            System.out.println("Palabra nueva : "+x);
-            
-        } catch (GameNotFoundException ex) {
-            Logger.getLogger(GamesResourceController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-       */
+       
+       
        return new ResponseEntity<>(HttpStatus.CREATED);
 
+    }
+    @RequestMapping(value = "/{name}", method = RequestMethod.GET)
+    public ResponseEntity<?> GetRecursoOrden(@PathVariable("name") String val) {
+        boolean acceso = false;
+        try {
+            return new ResponseEntity<>(mu.getUsuario(val), HttpStatus.ACCEPTED);
+
+        } catch (ManejadorUsuarioExcepcion ex) {
+            Logger.getLogger(ControladorUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            return new ResponseEntity<>("No existe ese usuario", HttpStatus.ACCEPTED);
+        }
     }
     
 }
