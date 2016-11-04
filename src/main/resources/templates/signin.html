@@ -1,7 +1,7 @@
 <html >
     <head>
         <meta charset="utf-8"/>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+      
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
         <title>Social Login Example Sign in Page</title>
@@ -29,20 +29,18 @@
                 <h5  class="h5  ">Contraseña:</h5>
                 <input id="clave" type="password" />
                 <h5 class="h5  ">_____________________</h5>
-                <button onclick="ingresar()" class="btn-adn center-block " type="submit" >Loggin</button>
+                <button onclick="ingresar()"  class="btn-adn center-block " type="submit" >Loggin</button>
 
 
                 <!-- TWITTER loggin -->
                 <form id="tw_signin" th:action="@{/connect/twitter}" method="POST" style="text-align: center;">
                     <h5 class="h5 "></h5>
                     <button class="btn  btn-twitter" type="submit">Logging with Twitter</button>
-                    <h5 class="h5 ">_________</h5>
+              
 
 
                 </form>
-                <button class="btn btn-adn btn-reddit" onclick="location.href = 'registerForm.html'"  type="submit">Registrate</button>  
-                <a href="registerForm.html" th:href="@{/register}">ingresar a diseñaraa</a>
-                <a href="../registerForm.html" th:href="@{/register}">ingresar a diseñar</a>
+                
             </div></div>
 
         <div th:replace="footers/footer :: #footer">footer</div>

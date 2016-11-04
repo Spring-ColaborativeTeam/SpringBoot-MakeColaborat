@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mycompany.social_login.home;
+package mycompany.social_login.controllers;
 
 import javax.inject.Inject;
 import org.springframework.beans.factory.annotation.Autowired;

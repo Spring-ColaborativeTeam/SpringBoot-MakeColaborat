@@ -7,14 +7,14 @@
 
 function agregarUsuario() {
 
-    var name = $("#user").val();
+    var usuario = $("#user").val();
     var pass = $("#pass").val();
     var passv = $("#verificar").val();
     if (pass === passv) {
         console.log(passv);
         console.log("Entro agregar usuario");
-        console.log("/usuarios/registro/" + name);
-        return $.ajax({url: "/usuarios/registro/" + name,
+        console.log("/userProfile."+usuario);
+        return $.ajax({url: "/usuarios/userProfile."+usuario,
             type: 'PUT',
             data: pass,
             contentType: "application/json"});
@@ -31,12 +31,14 @@ function agregarUsuario() {
 function ingresar(){
     var usuario = $("#usuario").val();
     var clave = $("#clave").val();
-
-    $.get( "/usuarios/"+usuario, 
-        function( data ) {
-            
+ console.log("clave."+clave);
+    $.get( "/usuarios/userProfile."+usuario, 
+        function(data) {
+              console.log("/usuarios/userProfile."+usuario); 
+                 console.log("data."+data.password);
             if(clave === data.password) {
-                console.log("Contraseña Correcta")
+                location.href ="userProfile."+usuario;
+                console.log("Contraseña Correcta"+ usuario);
                 
             }
             else{

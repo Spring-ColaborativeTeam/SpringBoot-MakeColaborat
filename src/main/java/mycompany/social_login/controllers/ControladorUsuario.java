@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mycompany.social_login.home;
+package mycompany.social_login.controllers;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import mycompany.social_login.home.ManejadorUsuarioExcepcion;
+import mycompany.social_login.home.ManejoUsuarios;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,17 +28,17 @@ public class ControladorUsuario {
     @Autowired
     ManejoUsuarios mu;
     
-    @RequestMapping(value = "/registro/{name}",method = RequestMethod.PUT)
-    public ResponseEntity<?> manejadorLetras(@PathVariable("name") String val,@RequestBody String pass){
-        System.out.println("Entro al PUT "+val);
-        mu.agregarUsuario(val, pass);
+    @RequestMapping(value = "/userProfile.{user}",method = RequestMethod.PUT)
+    public ResponseEntity<?> manejadorLetras(@PathVariable("user") String user,@RequestBody String pass){
+        System.out.println("Entro al PUT "+user);
+        mu.agregarUsuario(user, pass);
        
        
        return new ResponseEntity<>(HttpStatus.CREATED);
 
     }
-    @RequestMapping(value = "/{name}", method = RequestMethod.GET)
-    public ResponseEntity<?> GetRecursoOrden(@PathVariable("name") String val) {
+    @RequestMapping(value = "/userProfile.{user}", method = RequestMethod.GET)
+    public ResponseEntity<?> GetRecursoOrden(@PathVariable("user") String val) {
         boolean acceso = false;
         try {
             return new ResponseEntity<>(mu.getUsuario(val), HttpStatus.ACCEPTED);

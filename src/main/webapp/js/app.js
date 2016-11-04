@@ -74,7 +74,15 @@ $(document).ready(
         
             canvas = document.getElementById('myCanvas');
                   
-                
+             $("li").draggable({
+                    helper: 'clone'
+                });
+                $("#myCanvas").droppable({
+                drop: function (event, ui) {
+                    var idElementoSoltado = ui.draggable.attr("id");
+                    alert("Hola vas a introducir una tabla");
+                }
+            });
             canvas.addEventListener('mousedown', function(evt) {
                 var mousePos = getMousePos(canvas, evt);
                 stompClient.send("/app/newpoint", {}, JSON.stringify({x:mousePos.x,y:mousePos.y ,widht:200 , heigh: 150})); 
