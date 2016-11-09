@@ -1,6 +1,7 @@
 var stompClient = null;
-
+var count = 0;
 function connect() {
+    
     var socket = new SockJS('/stompendpoint');
     stompClient = Stomp.over(socket);
     
@@ -8,7 +9,7 @@ function connect() {
         console.log('Connected: ' + frame);
         stompClient.subscribe('/topic/newpoint', function (data) {           
            var cor = JSON.parse(data.body);
-           
+          
            canvas = document.getElementById('myCanvas');
            context = canvas.getContext('2d');
           
@@ -17,31 +18,17 @@ function connect() {
        
            context.fillRect(cor.x,cor.y,cor.widht,cor.heigh);//dibujamos un rectángulo.
              context.strokeRect(cor.x,cor.y,cor.widht,cor.heigh); 
-
-         
+             context.font = "bold 22px sans-serif";
+             context.fillStyle="black";
+             context.fillText("Tabla"+ count,cor.x,cor.y);
+            
  
            //context.beginPath();
            //context.arc(cor.x,cor.y,1,0,2*Math.PI);
            //context.stroke();           
         });
         
-        stompClient.subscribe('/topic/newpolygon', function (data) {           
-           var coor = JSON.parse(data.body);
-           //canvas = document.getElementById('myCanvas');
-           //context = canvas.getContext('2d');
-           //context.fillRect(coor.x,coor.y,50,40);
-           //context.fillStyle = '#f00';
-           //context.beginPath();
-           //context.moveTo(coor[0].x, coor[0].y);
-           //context.lineTo(coor[1].x, coor[1].y);
-           //context.lineTo(coor[2].x, coor[2].y);
-           //context.lineTo(coor[3].x, coor[3].y);
-           //context.closePath();
-           //context.fill();
-           
-           
-           
-        });
+   
     });
 }
 
@@ -80,12 +67,26 @@ $(document).ready(
                 $("#myCanvas").droppable({
                 drop: function (event, ui) {
                     var idElementoSoltado = ui.draggable.attr("id");
-                    alert("Hola vas a introducir una tabla");
+                    
+                    var mousePos = getMousePos(canvas, event);
+                    $.ajax({
+                 url: "http://localhost:8080/userwork/add",
+               type: 'PUT',    
+                 data: JSON.stringify({x:mousePos.x,y:mousePos.y ,widht:200 , heigh: 150}),
+                 contentType: "application/json",
+                 dataType: 'json',
+                 success: function(result) {
+                alert("success?");
+                console.log("PUT OK");
+             }
+    });        count ++;
+                stompClient.send("/app/newpoint", {}, JSON.stringify({x:mousePos.x,y:mousePos.y ,widht:200 , heigh: 150})); 
+                
                 }
             });
+            
             canvas.addEventListener('mousedown', function(evt) {
-                var mousePos = getMousePos(canvas, evt);
-                stompClient.send("/app/newpoint", {}, JSON.stringify({x:mousePos.x,y:mousePos.y ,widht:200 , heigh: 150})); 
+                
                 
             }, false);
     }

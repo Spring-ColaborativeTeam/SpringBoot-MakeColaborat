@@ -3,11 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mycompany.social_login.home;
+package mycompany.social_login.controllers;
 
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import mycompany.social_login.home.ManejadorPuntos;
+import mycompany.social_login.home.Rectangulo;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,15 +26,15 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Manuel Felipe.
  */
 @RestController
-@RequestMapping(value = "/puntos")
-public class PuntosController {
+@RequestMapping(value = "/userwork")
+public class FigsController {
     @Autowired
     SimpMessagingTemplate msgt;
     
     @Autowired
     ManejadorPuntos mp;
     
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.PUT , value = "/add")
     public  ResponseEntity<?> manejadorPostRecursoXX(@RequestBody Rectangulo pt) {
         try {
             msgt.convertAndSend("/topic/newpoint", pt);

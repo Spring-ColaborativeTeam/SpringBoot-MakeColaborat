@@ -13,7 +13,10 @@ function agregarUsuario() {
     if (pass === passv) {
         console.log(passv);
         console.log("Entro agregar usuario");
+        alert("Usuario Registrado exitosamente : " + usuario);
+       
         console.log("/userProfile."+usuario);
+        location.href = "userProfile."+usuario;
         return $.ajax({url: "/usuarios/userProfile."+usuario,
             type: 'PUT',
             data: pass,
