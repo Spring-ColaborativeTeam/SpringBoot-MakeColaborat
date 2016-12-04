@@ -83,7 +83,7 @@ public class MakeColaborativeTest {
     /*
     Prueba para determinar que un usuario desconocido
     no este en la base de datos estatica
-    */
+   
     @Test
     public void NoExisteUsuario() {
         ManejoUsuarios mu = new ManejoUsuarios();
@@ -97,6 +97,7 @@ public class MakeColaborativeTest {
         }
         
     }
+     */
     /*
     Prueba para comprobar que un usuario conocido
     pueda ingresar al sistema con su clave respectiva
