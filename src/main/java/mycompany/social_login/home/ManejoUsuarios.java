@@ -9,7 +9,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 /**
  *
@@ -35,7 +37,7 @@ while(it.hasNext()){
 */
     
     private Map<String, Usuario> usuarios ;
-
+  
     public ManejoUsuarios() {
         usuarios =  new HashMap<String, Usuario>();
         crearUsuarios();
@@ -45,6 +47,10 @@ while(it.hasNext()){
         Usuario us1 = new Usuario("Manuel","12345");
         Usuario us2 = new Usuario("Santiago","12345");
         Usuario us3 = new Usuario("Daniel","12345");
+        us1.getModelos().add(new Modelo(4,"Trabajoenequipo1"));
+        us1.getModelos().add(new Modelo(2,"Modelodeprueba2"));
+        us2.getModelos().add(new Modelo(3,"Modelo Chueco"));
+        us2.getModelos().add((new Modelo(4,"Modelo de Chisco")));
         usuarios.put(us1.getName(), us1);
         usuarios.put(us2.getName(), us2);
         usuarios.put(us3.getName(), us3);
@@ -54,7 +60,14 @@ while(it.hasNext()){
     public Map<String, Usuario> getUsuarios() {
         return usuarios;
     }
-    
+    public List<Modelo>getModelos(String user) throws ManejadorUsuarioExcepcion{
+         if (usuarios.get(user)==null) throw new ManejadorUsuarioExcepcion("No existe el usuario para modelarlo");
+         return usuarios.get(user).getModelos();
+    }
+    public void addmodel(Modelo m,String user) throws ManejadorUsuarioExcepcion{
+        if (usuarios.get(user)==null) throw new ManejadorUsuarioExcepcion("No existe el usuario");
+            usuarios.get(user).getModelos().add(m);
+    }
 
     public boolean ingresarUsuario(String name, String pass) throws ManejadorUsuarioExcepcion{
         boolean acceso = false;

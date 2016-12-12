@@ -5,6 +5,10 @@
  */
 package mycompany.social_login.home;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.concurrent.ConcurrentLinkedQueue;
+
 /**
  *
  * @author 2100609
@@ -13,16 +17,19 @@ public class Usuario {
     private String name;
     private String email;
     private String password;
+      List<Modelo> modelos ;
     
     public Usuario(String name, String email, String password) {
         this.name = name;
         this.email = email;
         this.password = password;
+           this.modelos = new LinkedList<>();
     }
 
     public Usuario(String name, String password) {
         this.name = name;
         this.password = password;
+           this.modelos = new LinkedList<>();
     }
     
     
@@ -30,6 +37,16 @@ public class Usuario {
         this.password = password;
         
     }
+
+    public List<Modelo> getModelos() {
+        return modelos;
+    }
+
+    public void setModelos(List<Modelo> modelos) {
+        this.modelos = modelos;
+    }
+
+    
 
     public String getPassword() {
         return password;

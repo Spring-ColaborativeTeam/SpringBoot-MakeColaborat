@@ -5,24 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     
     <title>Make-Colaborative</title>
+<!-- js Registro -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
+
+        <script src="js/registro.js"></script>    
     <!-- Bootstrap -->
     <link href="../../../webapp/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
    
     <link href="../../../webapp/css/sticky-footer-navbar.css" th:href="@{/css/sticky-footer-navbar.css}" rel="stylesheet"/>
+      
   </head>
   <body>
   	<div th:replace="userbars/userbarUser :: #bar">userbar</div>
     <div class="container"><div class="jumbotron"><h1>Bienvenido a su entorno!</h1>
 		
-                <a href="../userwork.html" th:href="@{/userwork}">ingresar a diseñar  </a>
-                <a> Ver sus modelos   </a>
-                <a href="../crearModelo.html" th:href="@{/crearModelo}">Crear nuevo modelo</a>
+            <a class="btn-primary btn-block text-center" style="height: 3%;" href="../userwork.html" th:href="@{/userwork}">Ingresar a Diseñar  </a>
+               
+            <button onclick="iraDiseñar()" class="btn-primary btn-block " type="submit" >Ir a diseañr</button>
+                
+           
+                <button onclick="getModels()" class="btn-primary btn-block " type="submit" >Ver mis modelos</button>
     </div></div>
+        <div class="container"><div id="containermodels" class="jumbotron"><ul id="userTools" >
+                    
+                   
+                  
+                </ul></div></div>
 	<div th:replace="footers/footer :: #footer">footer</div>
     <!-- jQuery (necesario para los plugins Bootstrap's JavaScript ) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
    
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/registro.js"></script>   
+
   </body>
 </html>

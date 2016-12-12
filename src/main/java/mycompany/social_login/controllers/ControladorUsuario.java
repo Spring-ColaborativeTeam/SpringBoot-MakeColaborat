@@ -9,6 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import mycompany.social_login.home.ManejadorUsuarioExcepcion;
 import mycompany.social_login.home.ManejoUsuarios;
+import mycompany.social_login.home.Modelo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,6 +33,26 @@ public class ControladorUsuario {
     public ResponseEntity<?> manejadorLetras(@PathVariable("user") String user,@RequestBody String pass){
         System.out.println("Entro al PUT "+user);
         mu.agregarUsuario(user, pass);
+       
+       
+       return new ResponseEntity<>(HttpStatus.CREATED);
+
+    }
+      @RequestMapping(value = "/models.{user}", method = RequestMethod.GET)
+    public ResponseEntity<?> GetModelos(@PathVariable("user") String user) {
+        try {
+            return new ResponseEntity<>(mu.getModelos(user), HttpStatus.ACCEPTED);
+
+        } catch (ManejadorUsuarioExcepcion ex) {
+            Logger.getLogger(ControladorUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            return new ResponseEntity<>("No existen Modelos", HttpStatus.ACCEPTED);
+        }
+    }
+      @RequestMapping(value = "/models.{user}",method = RequestMethod.PUT)
+    public ResponseEntity<?> putModelo(@PathVariable("user") String user,@RequestBody String numtablas,@RequestBody String name) throws ManejadorUsuarioExcepcion{
+        System.out.println("Entro al PUT  model");
+        Modelo m = new Modelo(Integer.parseInt(numtablas),name);
+        mu.addmodel(m, user);
        
        
        return new ResponseEntity<>(HttpStatus.CREATED);
