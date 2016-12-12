@@ -26,13 +26,13 @@ public class STOMPMessagesHandler {
     
     @MessageMapping("/newpoint")
     public synchronized void getLine(Rectangulo rec) throws Exception{
-
-               
+        System.out.println("Entro al app");
+        /*       
         msgt.convertAndSend("/topic/newpoint",rec);
         mp.adicionar(rec);
         if(mp.getSize()==4){
             msgt.convertAndSend("/topic/newpolygon",mp.Array());
             mp.reset();
-        }
+        }*/
     }
 }

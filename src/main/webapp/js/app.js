@@ -109,7 +109,7 @@ $(document).ready(
                     
                     var mousePos = getMousePos(canvas, event);
                     $.ajax({
-                 url: "http://localhost:8080/userwork/add",
+                 url: "/userwork/add",
                type: 'PUT',    
                  data: JSON.stringify({x:mousePos.x,y:mousePos.y ,widht:200 , heigh: 150}),
                  contentType: "application/json",
@@ -119,7 +119,7 @@ $(document).ready(
                 console.log("PUT OK");
              }
     });        count ++;
-               // stompClient.send("/app/newpoint", {}, JSON.stringify({x:mousePos.x,y:mousePos.y ,widht:200 , heigh: 150})); 
+               //stompClient.send("/app/newpoint", {}, JSON.stringify({x:mousePos.x,y:mousePos.y ,widht:200 , heigh: 150})); 
                 
                 }
             });
