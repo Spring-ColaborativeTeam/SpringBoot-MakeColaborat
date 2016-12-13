@@ -49,8 +49,10 @@ while(it.hasNext()){
         Usuario us3 = new Usuario("Daniel","12345");
         us1.getModelos().add(new Modelo(4,"Trabajoenequipo1"));
         us1.getModelos().add(new Modelo(2,"Modelodeprueba2"));
-        us2.getModelos().add(new Modelo(3,"Modelo Chueco"));
+        us2.getModelos().add(new Modelo(3,"Modelo Prueba"));
         us2.getModelos().add((new Modelo(4,"Modelo de Chisco")));
+        us3.getModelos().add(new Modelo(3,"Modelo Proyecto"));
+        //us3.getModelos().add((new Modelo(4,"Modelo de Chisco")));
         usuarios.put(us1.getName(), us1);
         usuarios.put(us2.getName(), us2);
         usuarios.put(us3.getName(), us3);

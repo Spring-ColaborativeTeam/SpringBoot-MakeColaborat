@@ -18,7 +18,7 @@ function connect() {
     
     stompClient.connect({}, function (frame) {
         console.log('Connected: ' + frame);
-        stompClient.subscribe('/topic', function (data) {           
+        stompClient.subscribe('/topic/newpoint', function (data) {           
            var cor = JSON.parse(data.body);
     rect  = new uml.Class({
         position: { x:cor.x  , y: cor.y },

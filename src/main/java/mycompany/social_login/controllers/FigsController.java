@@ -39,10 +39,11 @@ public class FigsController {
         try {
             msgt.convertAndSend("/topic/newpoint", pt);
             mp.adicionar(pt);
+            /*
             if(mp.getSize()==4){
                 msgt.convertAndSend("/topic/newpolygon",mp.Array());
                 mp.reset();
-            }
+            }*/
              return new ResponseEntity<>(HttpStatus.CREATED);
         } catch (Exception ex) {
             Logger.getLogger(STOMPMessagesHandler.class.getName()).log(Level.SEVERE, null, ex);
