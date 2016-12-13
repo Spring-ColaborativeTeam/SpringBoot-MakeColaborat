@@ -37,6 +37,7 @@ public class FigsController {
     @RequestMapping(method = RequestMethod.PUT , value = "/add")
     public  ResponseEntity<?> manejadorPostRecursoXX(@RequestBody Rectangulo pt) {
         try {
+            System.out.println("Entro al servidor");
             msgt.convertAndSend("/topic/newpoint", pt);
             mp.adicionar(pt);
             /*

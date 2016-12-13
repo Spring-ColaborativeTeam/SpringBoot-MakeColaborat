@@ -47,12 +47,19 @@ while(it.hasNext()){
         Usuario us1 = new Usuario("Manuel","12345");
         Usuario us2 = new Usuario("Santiago","12345");
         Usuario us3 = new Usuario("Daniel","12345");
-        us1.getModelos().add(new Modelo(4,"Trabajoenequipo1"));
+        us1.agregarModelo("Trabajoenequipo1",new Modelo(4,"Trabajoenequipo1"));
+        us1.agregarModelo("Modelodeprueba2",new Modelo(2,"Modelodeprueba2"));
+        us2.agregarModelo("Prueba",new Modelo(3,"Modelo Prueba"));
+        us2.agregarModelo("Chisco",new Modelo(4,"Modelo de Chisco"));
+        us2.agregarModelo("Modelo",new Modelo(4,"Modelo"));
+        /*
+        us1.agregarModelo("Trabajoenequipo1",new Modelo(4,"Trabajoenequipo1"));
         us1.getModelos().add(new Modelo(2,"Modelodeprueba2"));
         us2.getModelos().add(new Modelo(3,"Modelo Prueba"));
         us2.getModelos().add((new Modelo(4,"Modelo de Chisco")));
         us3.getModelos().add(new Modelo(3,"Modelo Proyecto"));
         //us3.getModelos().add((new Modelo(4,"Modelo de Chisco")));
+        */
         usuarios.put(us1.getName(), us1);
         usuarios.put(us2.getName(), us2);
         usuarios.put(us3.getName(), us3);
@@ -64,11 +71,14 @@ while(it.hasNext()){
     }
     public List<Modelo>getModelos(String user) throws ManejadorUsuarioExcepcion{
          if (usuarios.get(user)==null) throw new ManejadorUsuarioExcepcion("No existe el usuario para modelarlo");
-         return usuarios.get(user).getModelos();
+         System.out.println("Cantidad de modelos "+usuarios.get(user).getModelos().size());
+         List<Modelo> list = new ArrayList<Modelo>(usuarios.get(user).getModelos().values());
+         return list;
     }
     public void addmodel(Modelo m,String user) throws ManejadorUsuarioExcepcion{
+        System.out.println("Agrego el modelo");
         if (usuarios.get(user)==null) throw new ManejadorUsuarioExcepcion("No existe el usuario");
-            usuarios.get(user).getModelos().add(m);
+            usuarios.get(user).agregarModelo(m.getName(), m);
     }
 
     public boolean ingresarUsuario(String name, String pass) throws ManejadorUsuarioExcepcion{

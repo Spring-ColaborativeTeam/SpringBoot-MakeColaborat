@@ -74,20 +74,30 @@ function iraDiseñar(){
         }        
     );
 }
+function goToProfile(){
+   location.href ="userProfile."+user; 
+}
 function crearModelo(){
     var name = $("#namemodel").val();
-    var tables = "3";
-    var params = {numtablas: tables , name:name};
-    console.log("hola"+JSON.stringify(params));
-    if(name !== null || name !== ""){
-        return $.ajax({url: "/usuarios/models."+user,
-            type: 'PUT',
+    var tables = 3;
+    var params = name+"-"+tables;
+    console.log("hola "+user+" . "+name);
+    if(name === ""){
+         alert("Debe introducir un nombre");
+        //return $.ajax({url: "/usuarios/models."+user,
+          //  type: 'PUT',
             
-            data: JSON.stringify(params),
-            contentType: "application/json"});   
+            //data: JSON.stringify(params),
+            //contentType: "application/json"});   
     }
-  else
-      alert("Debe introducir un nombre");
+  else{
+      return $.ajax({url: "/usuarios/models."+user,
+            type: 'PUT',            
+            data: params,
+            contentType: "application/json"}); 
+      alert("Modelo Guardado");
+  }
+      
 }
 
 function getModels(){
@@ -114,10 +124,15 @@ $(document).ready(
             
             console.info('connecting to register');
            var cadena =location.pathname;
+           var cont = 0;
            if(cadena.includes("userProfile")|| cadena.includes("userwork")){
+               cont++;
                var resp =cadena.split(".");
                user = resp[1]; 
-            
+               if(cont ===1){
+           $("#h1_welcome").empty();
+            $("#h1_welcome").append("<h1 style='color:green' class='h1 panel-title'>Bienvenido : " +user+ "</h1>");
+               }
            }
           
         

@@ -18,11 +18,13 @@
   </head>
   <body>
   	<div th:replace="userbars/userbarUser :: #bar">userbar</div>
-    <div class="container"><div class="jumbotron"><h1>Bienvenido a su entorno!</h1>
+    <div class="container "><div class="jumbotron">
+            
+            <div id="h1_welcome" class="panel-success text-center " style="border:4px solid green;height: 10%; margin-bottom: 2%;"></div>
 		
-            <a class="btn-primary btn-block text-center" style="height: 3%;" href="../userwork.html" th:href="@{/userwork}">Ingresar a Diseñar  </a>
+          
                
-            <button onclick="iraDiseñar()" class="btn-primary btn-block " type="submit" >Crear Nuevo Modelo</button>
+            <button onclick="iraDiseñar()" class="btn-primary btn-block " style="margin-bottom: 2%;" type="submit" >Crear Nuevo Modelo</button>
                 
            
                 <button onclick="getModels()" class="btn-primary btn-block " type="submit" >Ver mis modelos</button>

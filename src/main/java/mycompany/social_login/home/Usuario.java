@@ -5,6 +5,7 @@
  */
 package mycompany.social_login.home;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -14,22 +15,24 @@ import java.util.concurrent.ConcurrentLinkedQueue;
  * @author 2100609
  */
 public class Usuario {
+    
     private String name;
     private String email;
     private String password;
-      List<Modelo> modelos ;
-    
+    private HashMap<String,Modelo>  modelos = new HashMap<>();
+    /*
     public Usuario(String name, String email, String password) {
         this.name = name;
         this.email = email;
         this.password = password;
-           this.modelos = new LinkedList<>();
+        this.modelos= new HashMap<>();
     }
+*/
 
     public Usuario(String name, String password) {
         this.name = name;
         this.password = password;
-           this.modelos = new LinkedList<>();
+       
     }
     
     
@@ -38,13 +41,21 @@ public class Usuario {
         
     }
 
-    public List<Modelo> getModelos() {
+    public HashMap<String, Modelo> getModelos() {
         return modelos;
     }
-
-    public void setModelos(List<Modelo> modelos) {
-        this.modelos = modelos;
+    
+    public Modelo consultarModelo(String nombre){
+        return modelos.get(nombre);
     }
+    
+    public void agregarModelo(String nombre, Modelo m){
+        System.out.println("Entro agregar "+nombre);
+        System.out.println(name);
+        this.modelos.put(nombre, m);
+        System.out.println(modelos.size());
+    }
+
 
     
 

@@ -49,9 +49,11 @@ public class ControladorUsuario {
         }
     }
       @RequestMapping(value = "/models.{user}",method = RequestMethod.PUT)
-    public ResponseEntity<?> putModelo(@PathVariable("user") String user,@RequestBody String numtablas,@RequestBody String name) throws ManejadorUsuarioExcepcion{
-        System.out.println("Entro al PUT  model");
-        Modelo m = new Modelo(Integer.parseInt(numtablas),name);
+    public ResponseEntity<?> putModelo(@PathVariable("user") String user,@RequestBody String name) throws ManejadorUsuarioExcepcion{
+        
+        String[] split = name.split("-");
+        //System.out.println("Entro al PUT  de guardar modelo "+tmp[0]);
+        Modelo m = new Modelo(Integer.parseInt(split[1]),split[0]);
         mu.addmodel(m, user);
        
        
