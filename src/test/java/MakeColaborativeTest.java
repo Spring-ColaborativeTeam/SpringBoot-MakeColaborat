@@ -128,6 +128,19 @@ public class MakeColaborativeTest {
         }
         
     }
+    @Test
+    public void CrearUnModelo() {
+        /*
+        ManejoUsuarios mu = new ManejoUsuarios();
+        try {
+            assertFalse(mu.ingresarUsuario("Santiago","123458987"));
+        } catch (ManejadorUsuarioExcepcion ex) {
+            Logger.getLogger(MakeColaborativeTest.class.getName()).log(Level.SEVERE, null, ex);
+            fail();
+        }
+        */
+        
+    }
     
     
 }
