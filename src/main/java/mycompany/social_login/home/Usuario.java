@@ -20,14 +20,14 @@ public class Usuario {
     private String email;
     private String password;
     private HashMap<String,Modelo>  modelos = new HashMap<>();
-    /*
+    
     public Usuario(String name, String email, String password) {
         this.name = name;
         this.email = email;
         this.password = password;
         this.modelos= new HashMap<>();
     }
-*/
+
 
     public Usuario(String name, String password) {
         this.name = name;
